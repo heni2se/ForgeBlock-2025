@@ -1,0 +1,668 @@
+/* ============================================
+   ABOUT US PAGE STYLES
+   ============================================ */
+
+/* Using bgbg11.png as single background, removed background-attachment fixed */
+.about-us-page {
+  background-image: url("/images/about-us-2.png");
+  background-size: 100% 100%;
+  background-position: top center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.about-us-main {
+  padding-top: 100px;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(121, 202, 227, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(121, 202, 227, 0.5);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* New typing animation keyframes */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #79cae3;
+  }
+}
+
+@keyframes revealText {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes fadeInWord {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes underlineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in-left {
+  animation: fadeInLeft 1s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 1s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  opacity: 0;
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-pop-in {
+  opacity: 0;
+  animation: popIn 0.6s ease-out forwards;
+}
+
+/* New typing animation classes */
+.animate-typing {
+  opacity: 0;
+  animation: revealText 1.5s ease-out forwards;
+}
+
+.animate-typing-slow {
+  opacity: 0;
+  animation: revealText 2s ease-out forwards;
+}
+
+/* Animation Delays */
+.delay-1 {
+  animation-delay: 0.2s;
+}
+.delay-2 {
+  animation-delay: 0.4s;
+}
+.delay-3 {
+  animation-delay: 0.6s;
+}
+.delay-4 {
+  animation-delay: 0.8s;
+}
+.delay-5 {
+  animation-delay: 1s;
+}
+.delay-6 {
+  animation-delay: 1.2s;
+}
+.delay-7 {
+  animation-delay: 1.4s;
+}
+
+/* ============================================
+   SECTION 1 - Header with About Us (CENTERED)
+   ============================================ */
+
+/* Changed from left-aligned to centered */
+.about-section-1 {
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 80px 60px 80px;
+  position: relative;
+}
+
+/* Centered content with larger max-width */
+.section-1-content {
+  max-width: 900px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Larger title with text shadow for depth */
+.about-title {
+  font-size: 5rem;
+  font-weight: 800;
+  color: var(--color-text-white);
+  margin-bottom: 50px;
+  letter-spacing: -1px;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+/* Added animated underline effect */
+.about-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #79cae3, transparent);
+  border-radius: 2px;
+  animation: underlineExpand 1s ease-out 0.5s forwards;
+}
+
+.about-title:hover {
+  transform: scale(1.02);
+  text-shadow: 4px 6px 12px rgba(0, 0, 0, 0.4), 0 0 30px rgba(121, 202, 227, 0.3);
+}
+
+.about-descriptions {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Larger text sizes with typing animation support */
+.about-desc-1,
+.about-desc-2 {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: var(--color-text-white);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.about-desc-1:hover,
+.about-desc-2:hover {
+  transform: scale(1.01);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.about-desc-1 {
+  font-weight: 400;
+}
+
+.about-desc-1 strong {
+  font-weight: 700;
+  color: #79cae3;
+  text-shadow: 0 0 15px rgba(121, 202, 227, 0.4);
+  position: relative;
+}
+
+/* Added glow effect on brand name */
+.about-desc-1 strong::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #79cae3;
+  box-shadow: 0 0 10px rgba(121, 202, 227, 0.5);
+}
+
+.about-desc-2 {
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+/* Larger bold statement */
+.about-desc-3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-text-white);
+  margin-top: 15px;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.about-desc-3:hover {
+  transform: scale(1.03);
+  color: #79cae3;
+  text-shadow: 0 0 20px rgba(121, 202, 227, 0.5);
+}
+
+/* ============================================
+   SECTION 2 - Our System & Mission (RIGHT ALIGNED)
+   ============================================ */
+
+.about-section-2 {
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 60px 80px;
+  position: relative;
+}
+
+/* Right-aligned content with proper width */
+.section-2-content {
+  max-width: 750px;
+  margin-right: 40px;
+  text-align: right;
+  position: relative;
+  z-index: 1;
+}
+
+.about-descriptions-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Larger text */
+.about-desc-2-1,
+.about-desc-2-3 {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: #2f4388;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.about-desc-2-1:hover,
+.about-desc-2-3:hover {
+  transform: translateX(-8px);
+  color: #1e2d5c;
+}
+
+.about-desc-2-1 {
+  font-weight: 400;
+}
+
+.about-desc-2-3 {
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* Mission statement split into two lines with enhanced styling */
+.mission-statement {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.3s ease;
+  padding: 20px 0;
+  position: relative;
+}
+
+.mission-statement::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #2f4388, #6389c8);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mission-statement:hover::before {
+  opacity: 1;
+}
+
+.mission-statement:hover {
+  transform: translateX(-10px);
+}
+
+.mission-line-1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2f4388;
+  line-height: 1.4;
+}
+
+.mission-line-2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2f4388;
+  line-height: 1.4;
+}
+
+/* ============================================
+   SECTION 3 - Get in Touch (CENTER ALIGNED)
+   ============================================ */
+
+.about-section-3 {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 80px;
+  position: relative;
+}
+
+.section-3-content {
+  max-width: 1100px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Larger title with glow effect */
+.contact-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--color-text-white);
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.contact-title:hover {
+  text-shadow: 0 0 30px rgba(121, 202, 227, 0.5), 2px 4px 8px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+/* Larger subtitle */
+.contact-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text-light);
+  margin-bottom: 60px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.contact-containers {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+/* Enhanced contact containers with hover effects */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  min-width: 200px;
+  padding: 30px 40px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.contact-container:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(121, 202, 227, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(121, 202, 227, 0.15);
+}
+
+/* Icon wrapper with glow effect */
+.contact-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(121, 202, 227, 0.15) 0%, rgba(99, 137, 200, 0.1) 100%);
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+.contact-container:hover .contact-icon-wrapper {
+  background: linear-gradient(135deg, rgba(121, 202, 227, 0.3) 0%, rgba(99, 137, 200, 0.2) 100%);
+  animation: glow 2s ease-in-out infinite;
+}
+
+.contact-icon {
+  width: 32px;
+  height: 32px;
+  color: #79cae3;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-container:hover .contact-icon {
+  transform: scale(1.15);
+  color: #fff;
+}
+
+/* Larger labels */
+.contact-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text-white);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 8px;
+}
+
+.contact-info {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-container:hover .contact-info {
+  color: #79cae3;
+}
+
+/* Enhanced copyright */
+.copyright {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.3s ease;
+}
+
+.copyright:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1200px) {
+  /* Updated for centered layout */
+  .section-1-content {
+    max-width: 700px;
+  }
+
+  .section-2-content {
+    margin-right: 20px;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us-page {
+    background-size: cover;
+  }
+
+  .about-title {
+    font-size: 3rem;
+  }
+
+  .about-section-1 {
+    padding: 60px 30px;
+    min-height: auto;
+  }
+
+  .section-1-content {
+    max-width: 100%;
+  }
+
+  .about-section-2 {
+    padding: 50px 30px;
+    min-height: auto;
+    justify-content: center;
+  }
+
+  .section-2-content {
+    margin-right: 0;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .mission-statement {
+    text-align: left;
+  }
+
+  .mission-statement::before {
+    right: auto;
+    left: 0;
+  }
+
+  .about-section-3 {
+    padding: 50px 30px;
+    min-height: auto;
+  }
+
+  .contact-containers {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .contact-container {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .about-desc-1,
+  .about-desc-2,
+  .about-desc-2-1,
+  .about-desc-2-3 {
+    font-size: 1rem;
+  }
+
+  .about-desc-3 {
+    font-size: 1.3rem;
+  }
+
+  .mission-line-1,
+  .mission-line-2 {
+    font-size: 1.2rem;
+  }
+
+  .contact-title {
+    font-size: 2.2rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   END OF ABOUT US STYLES
+   ============================================ */
