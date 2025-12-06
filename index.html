@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForgeBlock</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="landing-page">
+    <!-- ============================================
+         NAVIGATION SECTION
+         ============================================ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- TODO: Replace with your custom logo SVG file -->
+            <!-- Current: Using placeholder logo -->
+            <a href="index.html" class="nav-logo">
+                <img src="images/forgeblock-nav-logo.svg" alt="ForgeBlock Logo" class="logo-image">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about-us.html" class="nav-link">About Us</a></li>
+                <li><a href="compare.html" class="nav-link">Compare Signatures</a></li>
+                <li><a href="verify.html" class="nav-link">Verify Signatures</a></li>
+                <li><a href="profile.html" class="nav-link">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <main class="landing-main">
+        <section class="hero-section">
+            <div class="hero-content">
+                <!-- Typing Animation Title -->
+                <h1 class="hero-title">
+                    <span id="typing-text" class="gradient-text">ForgeBlock</span>
+                    <span class="cursor">|</span>
+                </h1>
+                <div class="hero-buttons">
+                    <p class="hero-description">
+                        ForgeBlock is an AI-powered signature forgery detection system 
+                        that analyzes handwritten signatures and accurately identifies 
+                        whether they are genuine or forged. It enhances document 
+                        security through fast, reliable, and automated verification.
+                    </p>
+                    
+                    <a href="signup.html" class="btn-get-started">
+                        <span class="btn-circle"></span>
+                        <span class="btn-text">Get Started</span>
+                    </a>
+
+                    <a href="signin.html" class="btn-signin-hero" id="btn-signin-hero">
+                        <span class="btn-text">Sign In</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             FEATURES SECTION - Cards
+             ============================================ -->
+        <section class="features-section">
+            <div class="features-container">
+                <!-- Feature Card 1: Accurate -->
+                <div class="feature-card">
+                    <!-- TODO: Replace with your custom SVG icon for "Accurate" -->
+                    <!-- Current: Template placeholder icon -->
+                    <div class="feature-icon">
+                        <svg class="icon-placeholder" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- TEMPLATE: Replace this SVG with your custom "Accurate" icon -->
+                            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 32L28 40L44 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Accurate</h3>
+                    <p class="feature-description">Offers highly accurate signature verification, ensuring that each transaction or document is precisely validated in real-time.</p>
+                </div>
+
+                <!-- Feature Card 2: Users Tested -->
+                <div class="feature-card">
+                    <!-- TODO: Replace with your custom SVG icon for "Users Tested" -->
+                    <!-- Current: Template placeholder icon -->
+                    <div class="feature-icon">
+                        <svg class="icon-placeholder" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- TEMPLATE: Replace this SVG with your custom "Users Tested" icon -->
+                            <circle cx="32" cy="20" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 52C16 43.163 23.163 36 32 36C40.837 36 48 43.163 48 52" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Users Tested</h3>
+                    <p class="feature-description">Proven by real-world users, ForgeBlock guarantees reliable and effective verification, continuously tested for performance and accuracy.</p>
+                </div>
+
+                <!-- Feature Card 3: Fast -->
+                <div class="feature-card">
+                    <!-- TODO: Replace with your custom SVG icon for "Fast" -->
+                    <!-- Current: Template placeholder icon -->
+                    <div class="feature-icon">
+                        <svg width="110" height="110" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M87.75 128.25L148.5 81L87.75 33.75V128.25Z" stroke="#3E5E8D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13.5 128.25L74.25 81L13.5 33.75V128.25Z" stroke="#3E5E8D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Fast</h3>
+                    <p class="feature-description">ForgeBlock performs real-time signature verification in milliseconds, delivering swift results without compromising accuracy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SAVE SIGNATURES CTA SECTION
+             ============================================ -->
+        <section class="save-signatures-section">
+            <h2 class="save-title">Want to Save Your Signatures?</h2>
+            <p class="save-description">
+                Create an account to securely store your signatures and access them 
+                anytime for quick verification. Our platform ensures your signatures 
+                are protected with advanced encryption and available whenever you need them.
+            </p>
+            <a href="signup.html" class="btn-signup-now">Sign Up Now</a>
+        </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER SECTION
+         ============================================ -->
+    <footer class="footer">
+        <p>&copy; 2025 ForgeBlock. All rights reserved.</p>
+    </footer>
+
+    <script src="js/landing.js"></script>
+</body>
+</html>

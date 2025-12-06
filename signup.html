@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ForgeBlock</title>
+    <link rel="icon" type="image/png" href="images/Tab-logo.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="signup-page">
+    <div class="signup-container">
+        <!-- Left Side - Background with CTA -->
+        <div class="signup-left">
+            <img src="images/White-Logo.svg" alt="Logo" class="signup-logo">
+            <h1 class="signup-cta">Get Started<br>Now</h1>
+        </div>
+
+        <!-- Right Side - Sign Up Form -->
+        <div class="signup-right">
+            <div class="signup-form-container">
+                <h2 class="signup-title">SIGN UP</h2>
+                <p class="signup-subtitle">Create your account</p>
+
+                <!-- Sign Up Form -->
+                <form id="signup-form" class="signup-form">
+                    <!-- Split name into first name and surname -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input 
+                                type="text" 
+                                id="first-name" 
+                                name="first-name" 
+                                placeholder="First Name" 
+                                class="form-input"
+                                required
+                            >
+                        </div>
+                        <div class="form-group">
+                            <input 
+                                type="text" 
+                                id="surname" 
+                                name="surname" 
+                                placeholder="Surname" 
+                                class="form-input"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Enter Email" 
+                            class="form-input"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Enter Password" 
+                            class="form-input"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="btn-signup">Sign Up</button>
+                </form>
+
+                <div class="divider">
+                    <span class="divider-text">Or continue with</span>
+                </div>
+
+                <!-- Social Login Buttons -->
+                <div class="social-buttons">
+                    <button type="button" class="btn-social btn-google">
+                        <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                        </svg>
+                        <span>Google</span>
+                    </button>
+
+                    <button type="button" class="btn-social btn-facebook">
+                        <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 7.387v10.478c0 .23-.08.424-.238.576-.158.154-.352.23-.58.23h-8.547v-6.959l1.6 1.229c.102.086.223.129.363.129.14 0 .26-.043.363-.129l6.801-5.224c.087-.058.166-.082.238-.07v-.001zm-.818-1.607c.047 0 .156.04.328.122a.859.859 0 0 1 .254.195l-7.129 5.477-7.129-5.477a.859.859 0 0 1 .254-.195c.172-.082.28-.122.328-.122h13.094zM14.635 12.73v6.941H.818c-.228 0-.422-.076-.58-.23C.08 19.289 0 19.094 0 18.865V5.135c0-.228.08-.422.238-.574.158-.154.352-.23.58-.23h.818v8.437c0 .584.206 1.084.617 1.5.41.418.906.627 1.486.627h10.896v-2.166zm-6.32-7.418c1.207 0 2.234.438 3.082 1.313.847.874 1.27 1.943 1.27 3.205 0 1.262-.423 2.33-1.27 3.205-.848.875-1.875 1.313-3.082 1.313s-2.234-.438-3.082-1.313c-.847-.875-1.27-1.943-1.27-3.205 0-1.262.423-2.33 1.27-3.205.848-.875 1.875-1.313 3.082-1.313zm0 1.64c-.737 0-1.362.27-1.875.808-.514.54-.77 1.195-.77 1.97 0 .773.256 1.43.77 1.968.513.54 1.138.809 1.875.809s1.362-.27 1.875-.809c.514-.539.77-1.195.77-1.969 0-.774-.256-1.43-.77-1.969-.513-.539-1.138-.808-1.875-.808z" fill="#0078D4"/>
+                        </svg>
+                        <span>Outlook</span>
+                    </button>
+                </div>
+
+                <p class="terms-text">
+                    By registering you agree to our <a href="#" class="terms-link">Terms and Conditions</a>
+                </p>
+
+                <!-- Added sign in link for existing users -->
+                <p class="signin-link-text">
+                    Already have an account? <a href="signin.html" class="signin-link">Sign In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/signup.js"></script>
+</body>
+</html>

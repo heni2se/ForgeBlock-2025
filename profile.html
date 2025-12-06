@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="icon" type="image/png" href="images/Tab-logo.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/profile-additions.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="app-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/forgeblock-nav-logo.svg" alt="ForgeBlock Logo" class="logo-image">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about-us.html" class="nav-link">About Us</a></li>
+                <li><a href="compare.html" class="nav-link">Compare Signatures</a></li>
+                <li><a href="verify.html" class="nav-link">Verify Signatures</a></li>
+                <li><a href="profile.html" class="nav-link active" id="nav-profile-link">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Added locked overlay for non-authenticated users -->
+    <div class="locked-overlay" id="locked-overlay" style="display: none;">
+        <div class="locked-content">
+            <svg class="locked-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h2 class="locked-title">Account Required</h2>
+            <p class="locked-text">Sign in or create an account to access your profile and manage your signature enrollments.</p>
+            <div class="locked-buttons">
+                <a href="signin.html" class="btn-locked-primary">Sign In</a>
+                <a href="signup.html" class="btn-locked-secondary">Create Account</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="app-main" id="profile-main">
+        <!-- User profile information section -->
+        <div class="user-profile-section">
+            <div class="user-profile-header">
+                <div class="user-avatar">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="user-info-main">
+                    <h1 class="user-profile-name" id="profile-name">User Name</h1>
+                    <p class="user-profile-email" id="profile-email">user@email.com</p>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn-edit-profile" id="btn-edit-profile">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 4H4C3.44772 4 3 4.44772 3 5V20C3 20.5523 3.44772 21 4 21H19C19.5523 21 20 20.5523 20 20V13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16.5 2.5C17.3284 1.67157 18.6716 1.67157 19.5 2.5C20.3284 3.32843 20.3284 4.67157 19.5 5.5L9 16V19H12L18.5 12.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Edit
+                    </button>
+                    <!-- Added logout button -->
+                    <button class="btn-logout" id="btn-logout">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Log Out
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profile Details Grid - Removed account status and verification standard -->
+            <div class="profile-details-grid">
+                <div class="profile-detail-item">
+                    <label>Role</label>
+                    <p id="profile-role">Staff</p>
+                </div>
+                <div class="profile-detail-item">
+                    <label>Date Joined</label>
+                    <p id="profile-date-joined">Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Profile Modal -->
+        <div class="edit-profile-modal" id="edit-profile-modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Edit Profile</h2>
+                    <button class="btn-close-modal" id="btn-close-modal">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <form class="edit-profile-form" id="edit-profile-form">
+                    <!-- Split name into first name and surname -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edit-first-name">First Name</label>
+                            <input type="text" id="edit-first-name" class="form-input" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-surname">Surname</label>
+                            <input type="text" id="edit-surname" class="form-input" placeholder="Enter surname" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-email">Email Address</label>
+                        <input type="email" id="edit-email" class="form-input" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="edit-role">Role</label>
+                        <select id="edit-role" class="form-input form-select" required>
+                            <option value="Staff">Staff</option>
+                            <option value="Analyst">Analyst</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Specialist">Specialist</option>
+                        </select>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel" id="btn-cancel-edit">Cancel</button>
+                        <button type="submit" class="btn-save-profile">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="modal-overlay" style="display: none;"></div>
+
+        <!-- Logout Confirmation Modal -->
+        <div class="logout-modal" id="logout-modal" style="display: none;">
+            <div class="modal-content logout-modal-content">
+                <div class="logout-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2>Log Out</h2>
+                <p>Are you sure you want to log out of your account?</p>
+                <div class="logout-modal-actions">
+                    <button type="button" class="btn-cancel" id="btn-cancel-logout">Cancel</button>
+                    <button type="button" class="btn-confirm-logout" id="btn-confirm-logout">Log Out</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-header-content">
+                <div class="profile-title-section">
+                    <div class="profile-icon-wrapper">
+                        <svg class="profile-main-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 11H5M19 11C20.1046 11 21 11.8954 21 13V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V13C3 11.8954 3.89543 11 5 11M19 11V9C19 7.89543 18.1046 7 17 7M5 11V9C5 7.89543 5.89543 7 7 7M7 7V5C7 3.89543 7.89543 3 9 3H15C16.1046 3 17 3.89543 17 5V7M7 7H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="profile-name">Signature Database</h1>
+                        <p class="profile-subtitle">Browse and manage user signatures</p>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-card" id="test-users-stat">
+                        <span class="stat-value">--</span>
+                        <span class="stat-label">Test Users</span>
+                    </div>
+                    <div class="stat-card" id="enrolled-users-stat">
+                        <span class="stat-value">--</span>
+                        <span class="stat-label">Enrolled</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Container -->
+        <div class="profile-container">
+            <!-- Left Panel - Users & Signatures List -->
+            <div class="signatures-panel">
+                <!-- Redesigned user type selector with icons -->
+                <div class="user-type-selector">
+                    <button class="user-type-btn active" data-type="test">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 17 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>Test Users</span>
+                    </button>
+                    <button class="user-type-btn" data-type="enrolled">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>Enrolled Users</span>
+                    </button>
+                </div>
+
+                <!-- Added search bar -->
+                <div class="search-bar">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M20 20L16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <input type="text" class="search-input" id="user-search" placeholder="Search users...">
+                </div>
+
+                <!-- Test Users Section -->
+                <div class="folder-section" id="test-users-section">
+                    <div class="user-list" id="test-user-list">
+                        <div class="loading-skeleton">
+                            <div class="skeleton-item"></div>
+                            <div class="skeleton-item"></div>
+                            <div class="skeleton-item"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enrolled Users Section -->
+                <div class="folder-section" id="enrolled-users-section" style="display: none;">
+                    <div class="user-list" id="enrolled-user-list">
+                        <div class="loading-skeleton">
+                            <div class="skeleton-item"></div>
+                            <div class="skeleton-item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Signature Preview -->
+            <div class="preview-panel" id="preview-panel">
+                <div class="preview-placeholder" id="preview-placeholder">
+                    <div class="placeholder-animation">
+                        <svg class="preview-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="8" width="48" height="48" rx="8" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 36L28 28L36 36L44 24L56 40" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="24" cy="22" r="4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <p class="preview-hint">Select a signature to preview</p>
+                        <p class="preview-hint-sub">Click on any signature thumbnail from the list</p>
+                    </div>
+                </div>
+                <div class="preview-content" id="preview-content" style="display: none;">
+                    <img id="signature-preview-large" class="signature-preview-large">
+                    <div class="preview-info" id="preview-info">
+                        <div class="preview-info-row">
+                            <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            <span class="preview-user" id="preview-user"></span>
+                        </div>
+                        <div class="preview-info-row">
+                            <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 2V8H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span class="preview-filename" id="preview-filename"></span>
+                        </div>
+                        <div class="preview-info-row">
+                            <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M3 9H21" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M9 21V9" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            <span class="preview-type" id="preview-type"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forged Signatures Reports Section -->
+        <div class="forged-reports-section" id="forged-reports-section">
+            <div class="section-header-row">
+                <div class="section-title-wrapper">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div>
+                        <h2 class="section-title">Detected Forged Signatures</h2>
+                        <p class="section-subtitle">Review and report potential forgery cases</p>
+                    </div>
+                </div>
+                <button class="btn-new-report" id="btn-new-report">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    New Report
+                </button>
+            </div>
+
+            <div class="forged-reports-list" id="forged-reports-list">
+                <div class="empty-reports-state" id="empty-reports-state">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12H15M9 16H15M17 21H7C5.89543 21 5 20.1046 5 19V5C5 3.89543 5.89543 3 7 3H12.5858C12.851 3 13.1054 3.10536 13.2929 3.29289L18.7071 8.70711C18.8946 8.89464 19 9.149 19 9.41421V19C19 20.1046 18.1046 21 17 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <p>No forged signature reports yet</p>
+                    <span>Detected forgeries from signature verification will appear here</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Report Modal -->
+        <div class="report-modal" id="report-modal" style="display: none;">
+            <div class="modal-content report-modal-content">
+                <div class="modal-header">
+                    <h2 id="report-modal-title">Create Forgery Report</h2>
+                    <button class="btn-close-modal" id="btn-close-report-modal">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <form class="report-form" id="report-form">
+                    <div class="form-group">
+                        <label for="report-document-type">Document Type</label>
+                        <select id="report-document-type" class="form-input form-select" required>
+                            <option value="">Select document type...</option>
+                            <option value="Check">Check</option>
+                            <option value="Contract">Contract</option>
+                            <option value="Legal Document">Legal Document</option>
+                            <option value="Authorization Form">Authorization Form</option>
+                            <option value="Financial Document">Financial Document</option>
+                            <option value="ID Document">ID Document</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="report-signer-name">Alleged Signer Name</label>
+                        <input type="text" id="report-signer-name" class="form-input" placeholder="Enter the name of the person whose signature was forged" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="report-date-detected">Date Detected</label>
+                        <input type="date" id="report-date-detected" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="report-match-score">Match Score (%)</label>
+                        <input type="number" id="report-match-score" class="form-input" placeholder="Enter the match percentage" min="0" max="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="report-details">Report Details</label>
+                        <textarea id="report-details" class="form-input form-textarea" placeholder="Describe the findings, circumstances, and any additional observations..." rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="report-action">Recommended Action</label>
+                        <select id="report-action" class="form-input form-select">
+                            <option value="Investigation Required">Investigation Required</option>
+                            <option value="Report to Authorities">Report to Authorities</option>
+                            <option value="Internal Review">Internal Review</option>
+                            <option value="No Action">No Action - False Positive</option>
+                        </select>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn-cancel" id="btn-cancel-report">Cancel</button>
+                        <button type="button" class="btn-download-report" id="btn-download-report">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Download PDF
+                        </button>
+                        <button type="submit" class="btn-save-profile">Save Report</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Delete User Confirmation Modal -->
+        <div class="delete-user-modal" id="delete-user-modal" style="display: none;">
+            <div class="modal-content delete-modal-content">
+                <div class="delete-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 6H5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2>Delete User</h2>
+                <p>Are you sure you want to delete <strong id="delete-user-name"></strong>? This action will remove all their signatures and cannot be undone.</p>
+                <div class="delete-modal-actions">
+                    <button type="button" class="btn-cancel" id="btn-cancel-delete">Cancel</button>
+                    <button type="button" class="btn-confirm-delete" id="btn-confirm-delete">Delete User</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/profile.js"></script>
+    <script src="js/profile-additions.js"></script>
+    <!-- Added jsPDF library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>

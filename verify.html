@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Signatures</title>
+    <link rel="icon" type="image/png" href="images/Tab-logo.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/verify.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="app-page">
+    <!-- Navigation Section -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/forgeblock-nav-logo.svg" alt="ForgeBlock Logo" class="logo-image">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about-us.html" class="nav-link">About Us</a></li>
+                <li><a href="compare.html" class="nav-link">Compare Signatures</a></li>
+                <li><a href="verify.html" class="nav-link active">Verify Signatures</a></li>
+                <li><a href="profile.html" class="nav-link">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content - Verify Signatures -->
+    <main class="app-main">
+        <div class="page-header">
+            <h1 class="page-title">Verify Signatures</h1>
+            <p class="page-subtitle">Enroll your signatures to generate personalized feature embeddings and custom similarity thresholds unique to your writing style. Once enrolled, ForgeBlock analyzes new signature samples by comparing them against your stored profile, resulting in a more accurate and user-specific verification. This feature is designed for reliable identity validation, ensuring higher precision than quick comparisons by adapting to your natural signature variations.</p>
+        </div>
+
+        <!-- Added threshold indicator bar -->
+        <div class="threshold-indicator" id="threshold-indicator">
+            <div class="threshold-header">
+                <span class="threshold-label">Current Thresholds:</span>
+                <span class="threshold-type-value default" id="threshold-type">Default</span>
+                <!-- Added toggle switch for default/adaptive -->
+                <label class="threshold-toggle-container" id="threshold-toggle-container" style="display: none;">
+                    <span class="toggle-label">Use Default</span>
+                    <input type="checkbox" id="threshold-toggle" class="threshold-toggle-input">
+                    <span class="threshold-toggle-slider"></span>
+                </label>
+            </div>
+            <div class="threshold-values">
+                <div class="threshold-item">
+                    <span class="threshold-name">Cosine</span>
+                    <span class="threshold-value" id="threshold-cosine">0.8500</span>
+                </div>
+                <div class="threshold-item">
+                    <span class="threshold-name">Euclidean</span>
+                    <span class="threshold-value" id="threshold-euclidean">0.8000</span>
+                </div>
+                <div class="threshold-item">
+                    <span class="threshold-name">Manhattan</span>
+                    <span class="threshold-value" id="threshold-manhattan">1.5000</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <!-- Left Panel - Signature Selection & Upload -->
+            <div class="upload-panel">
+                
+                <!-- Added user type selector -->
+                <div class="user-type-selector" id="user-type-selector">
+                    <button class="user-type-btn active" id="test-users-btn">Test Users</button>
+                    <button class="user-type-btn" id="enrolled-users-btn">Enrolled Users</button>
+                    <button class="enroll-new-btn" id="enroll-new-btn">+ Enroll New</button>
+                </div>
+
+                <!-- Signature 1 - From Users Dataset -->
+                <div class="signature-upload-section">
+                    <div class="section-header">
+                        <h3 class="section-label">Reference Signature</h3>
+                        <select id="folder-select" class="folder-select">
+                            <option value="">Loading users...</option>
+                        </select>
+                    </div>
+                    <!-- Signature picker will be inserted here dynamically -->
+                    <div class="saved-signature-display" id="saved-signature-display">
+                        <img id="saved-preview" class="signature-preview" style="display: none;">
+                        <p class="empty-state" id="saved-empty">Select a test user to see their signatures</p>
+                    </div>
+                </div>
+
+                <!-- Signature 2 - New Upload -->
+                <div class="signature-upload-section">
+                    <h3 class="section-label">Signature to Verify</h3>
+                    <div class="dropzone" id="dropzone-verify" data-signature="verify">
+                        <svg class="upload-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 32V8M24 8L16 16M24 8L32 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 28V36C8 38.209 9.791 40 12 40H36C38.209 40 40 38.209 40 36V28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="dropzone-text">Drop Signature here</p>
+                        <p class="dropzone-subtext">or click to browse</p>
+                        <input type="file" id="file-input-verify" class="file-input" accept="image/*">
+                        <img id="preview-verify" class="signature-preview" style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Verify Button -->
+                <button id="verify-btn" class="btn-verify" disabled>Verify Signatures</button>
+            </div>
+
+            <!-- Right Panel - Analysis Results -->
+            <div class="analysis-panel" id="analysis-panel">
+                <div class="analysis-placeholder">
+                    <div class="loading-indicator" id="loading-indicator" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Analyzing signatures...</p>
+                    </div>
+
+                    <div class="default-state" id="default-state">
+                        <div class="analysis-bars">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <p class="analysis-hint">Select a reference signature and upload one to verify</p>
+                    </div>
+
+                    <div class="results-state" id="results-state" style="display: none;">
+                        
+                        <!-- Circular Percentage Indicator -->
+                        <div class="percentage-circle-container">
+                            <svg class="percentage-circle" viewBox="0 0 200 200">
+                                <circle 
+                                    class="circle-bg" 
+                                    cx="100" 
+                                    cy="100" 
+                                    r="85" 
+                                    fill="none" 
+                                    stroke="rgba(255,255,255,0.2)" 
+                                    stroke-width="12"
+                                />
+                                <circle 
+                                    id="progress-circle"
+                                    class="circle-progress" 
+                                    cx="100" 
+                                    cy="100" 
+                                    r="85" 
+                                    fill="none" 
+                                    stroke="url(#circleGradientVerify)" 
+                                    stroke-width="12"
+                                    stroke-linecap="round"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-dasharray="534"
+                                    stroke-dashoffset="534"
+                                />
+                                <defs>
+                                    <linearGradient id="circleGradientVerify" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#6389C8"/>
+                                        <stop offset="100%" style="stop-color:#79CAE3"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="percentage-text">
+                                <span class="percentage-value" id="result-percentage">0</span>
+                                <span class="percentage-symbol">%</span>
+                            </div>
+                        </div>
+
+                        <!-- Match Criteria Label -->
+                        <div class="match-criteria" id="match-criteria">
+                            <span class="match-label" id="match-label">-</span>
+                        </div>
+
+                        <!-- Forged/Genuine verdict label -->
+                        <div class="verdict-label-container" id="verdict-container">
+                            <span class="verdict-label" id="verdict-label">-</span>
+                        </div>
+
+                        <!-- Feature Bars - 3 metrics -->
+                        <div class="feature-bars-detailed">
+                            <div class="feature-bar-item">
+                                <div class="feature-info">
+                                    <span class="feature-name">Cosine Similarity</span>
+                                    <span class="feature-value" id="feature1-value">0.0000</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar-fill" id="feature1-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <div class="feature-bar-item">
+                                <div class="feature-info">
+                                    <span class="feature-name">Euclidean Distance</span>
+                                    <span class="feature-value" id="feature2-value">0.0000</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar-fill" id="feature2-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <div class="feature-bar-item">
+                                <div class="feature-info">
+                                    <span class="feature-name">Manhattan Distance</span>
+                                    <span class="feature-value" id="feature3-value">0.0000</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar-fill" id="feature3-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Observations Section -->
+                        <div class="ai-observations-section">
+                            <h4 class="observations-title">AI Observations</h4>
+                            <div class="observations-content" id="ai-observations">
+                                <p class="observation-text" id="observation-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Enrollment Modal -->
+    <div class="modal-overlay" id="enrollment-modal" style="display: none;">
+        <div class="modal-content enrollment-modal">
+            <div class="modal-header">
+                <h2>Enroll New User</h2>
+                <button class="modal-close" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">Upload at least 5 genuine signatures to create a user profile with adaptive thresholds.</p>
+                
+                <div class="enroll-form">
+                    <div class="form-group">
+                        <label for="enroll-username">User Name</label>
+                        <input type="text" id="enroll-username" placeholder="Enter user's full name" class="enroll-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Signatures <span class="count-invalid" id="enroll-count">0/5 minimum</span></label>
+                        <div class="enroll-dropzone" id="enroll-dropzone">
+                            <svg class="upload-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 32V8M24 8L16 16M24 8L32 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 28V36C8 38.209 9.791 40 12 40H36C38.209 40 40 38.209 40 36V28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <p>Drop signatures here or click to browse</p>
+                            <input type="file" id="enroll-file-input" class="file-input" accept="image/*" multiple>
+                        </div>
+                    </div>
+                    
+                    <div class="enroll-file-list" id="enroll-file-list">
+                        <p class="no-files">No files selected</p>
+                    </div>
+                    
+                    <div class="enroll-status" id="enroll-status"></div>
+                    
+                    <button class="btn-enroll" id="enroll-submit-btn" disabled>Enroll User</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/verify.js"></script>
+</body>
+</html>

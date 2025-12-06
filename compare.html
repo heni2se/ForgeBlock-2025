@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Signatures</title>
+    <link rel="icon" type="image/png" href="images/Tab-logo.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/compare-enhanced.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="app-page">
+    <!-- ============================================
+         NAVIGATION SECTION
+         ============================================ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/forgeblock-nav-logo.svg" alt="ForgeBlock Logo" class="logo-image">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about-us.html" class="nav-link">About Us</a></li>
+                <li><a href="compare.html" class="nav-link active">Compare Signatures</a></li>
+                <li><a href="verify.html" class="nav-link">Verify Signatures</a></li>
+                <li><a href="profile.html" class="nav-link">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         MAIN CONTENT - Compare Signatures
+         ============================================ -->
+    <main class="app-main">
+        <!-- Enhanced page header with icon and better visual design -->
+        <div class="page-header enhanced-header">
+            <div class="header-content">
+                <div class="header-icon-wrapper">
+                    <svg class="header-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 3H5C3.89543 3 3 3.89543 3 5V9M9 3V1M9 3V5M9 3H11M3 9H1M3 9V11M21 9V5C21 3.89543 20.1046 3 19 3H15M21 9H23M21 9V11M15 3V1M15 3V5M3 15V19C3 20.1046 3.89543 21 5 21H9M3 15H1M3 15V13M9 21V23M9 21H11M21 15V19C21 20.1046 20.1046 21 19 21H15M21 15H23M21 15V13M15 21V23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="header-text">
+                    <h1 class="page-title">Compare Signatures</h1>
+                    <p class="page-subtitle">Upload two signature images to perform a quick comparison. This feature uses ForgeBlock’s default similarity thresholds to instantly evaluate how closely the two signatures match. While results may vary since no personalized enrollment data is used, this tool is ideal for fast, on-the-spot signature comparison without requiring prior registration or training.</p>
+                </div>
+            </div>
+            <div class="header-badges">
+                <span class="header-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    AI-Powered Analysis
+                </span>
+                <span class="header-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 10V3L4 14H11V21L20 10H13Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Instant Results
+                </span>
+                <span class="header-badge">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 15V17M6 21H18C19.1046 21 20 20.1046 20 19V13C20 11.8954 19.1046 11 18 11H6C4.89543 11 4 11.8954 4 13V19C4 20.1046 4.89543 21 6 21ZM16 11V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V11H16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Secure Processing
+                </span>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <!-- ============================================
+                 LEFT PANEL - Signature Upload Areas
+                 ============================================ -->
+            <div class="upload-panel">
+                <!-- Signature 1 Upload -->
+                <div class="signature-upload-section">
+                    <h3 class="section-label">Signature 1</h3>
+                    <div class="dropzone" id="dropzone1" data-signature="1">
+                        <!-- Upload Icon -->
+                        <svg class="upload-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 32V8M24 8L16 16M24 8L32 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 28V36C8 38.209 9.791 40 12 40H36C38.209 40 40 38.209 40 36V28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="dropzone-text">Drop Signature here</p>
+                        <p class="dropzone-subtext">or click to browse</p>
+                        <input type="file" id="file-input-1" class="file-input" accept="image/*">
+                        <!-- Preview will be inserted here -->
+                        <img id="preview1" class="signature-preview" style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Signature 2 Upload -->
+                <div class="signature-upload-section">
+                    <h3 class="section-label">Signature 2</h3>
+                    <div class="dropzone" id="dropzone2" data-signature="2">
+                        <svg class="upload-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 32V8M24 8L16 16M24 8L32 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 28V36C8 38.209 9.791 40 12 40H36C38.209 40 40 38.209 40 36V28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="dropzone-text">Drop Signature here</p>
+                        <p class="dropzone-subtext">or click to browse</p>
+                        <input type="file" id="file-input-2" class="file-input" accept="image/*">
+                        <img id="preview2" class="signature-preview" style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Verify Button -->
+                <button id="verify-btn" class="btn-verify" disabled>Verify Signatures</button>
+            </div>
+
+            <!-- ============================================
+                 RIGHT PANEL - Analysis Results
+                 ============================================ -->
+            <div class="analysis-panel" id="analysis-panel">
+                <div class="analysis-placeholder">
+                    <!-- Loading indicator - shown during analysis -->
+                    <div class="loading-indicator" id="loading-indicator" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Analyzing signatures...</p>
+                    </div>
+
+                    <!-- Default state - before analysis -->
+                    <div class="default-state" id="default-state">
+                        <div class="analysis-bars">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <p class="analysis-hint">Upload Signatures and click verify to see analysis</p>
+                    </div>
+
+                    <!-- Results state - after analysis -->
+                    <div class="results-state" id="results-state" style="display: none;">
+                        
+                        <!-- Circular Percentage Indicator -->
+                        <div class="percentage-circle-container">
+                            <svg class="percentage-circle" viewBox="0 0 200 200">
+                                <!-- Background circle -->
+                                <circle 
+                                    class="circle-bg" 
+                                    cx="100" 
+                                    cy="100" 
+                                    r="85" 
+                                    fill="none" 
+                                    stroke="rgba(255,255,255,0.2)" 
+                                    stroke-width="12"
+                                />
+                                <!-- Progress circle - stroke-dasharray and stroke-dashoffset will be set via JS -->
+                                <circle 
+                                    id="progress-circle"
+                                    class="circle-progress" 
+                                    cx="100" 
+                                    cy="100" 
+                                    r="85" 
+                                    fill="none" 
+                                    stroke="url(#circleGradient)" 
+                                    stroke-width="12"
+                                    stroke-linecap="round"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-dasharray="534"
+                                    stroke-dashoffset="534"
+                                />
+                                <!-- Gradient definition -->
+                                <defs>
+                                    <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#6389C8"/>
+                                        <stop offset="100%" style="stop-color:#79CAE3"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <!-- Percentage text inside circle -->
+                            <div class="percentage-text">
+                                <span class="percentage-value" id="result-percentage">0</span>
+                                <span class="percentage-symbol">%</span>
+                            </div>
+                        </div>
+
+                        <!-- Match Criteria Label -->
+                        <div class="match-criteria" id="match-criteria">
+                            <span class="match-label" id="match-label">-</span>
+                        </div>
+
+                        <!-- Forged/Genuine verdict label -->
+                        <div class="verdict-label-container" id="verdict-container">
+                            <span class="verdict-label" id="verdict-label">-</span>
+                        </div>
+
+                        <!-- Feature Bars with Labels and Values -->
+                        <!-- Removed 5 metrics, now showing only 3: Cosine Similarity, Euclidean Distance, Manhattan Distance -->
+                        <div class="feature-bars-detailed">
+                            
+                            <div class="feature-bar-item">
+                                <div class="feature-info">
+                                    <span class="feature-name">Cosine Similarity</span>
+                                    <span class="feature-value" id="feature1-value">0.00</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar-fill" id="feature1-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <div class="feature-bar-item">
+                                <div class="feature-info">
+                                    <span class="feature-name">Euclidean Distance</span>
+                                    <span class="feature-value" id="feature2-value">0.00</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar-fill" id="feature2-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <div class="feature-bar-item">
+                                <div class="feature-info">
+                                    <span class="feature-name">Manhattan Distance</span>
+                                    <span class="feature-value" id="feature3-value">0.00</span>
+                                </div>
+                                <div class="bar-container">
+                                    <div class="bar-fill" id="feature3-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Observations Section -->
+                        <div class="ai-observations-section">
+                            <h4 class="observations-title">AI Observations</h4>
+                            <div class="observations-content" id="ai-observations">
+                                <p class="observation-text" id="observation-text">
+                                    <!-- Observations will be generated here -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/compare.js"></script>
+</body>
+</html>

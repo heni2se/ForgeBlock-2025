@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="icon" type="image/png" href="images/Tab-logo.svg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/about-us.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="about-us-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/forgeblock-nav-logo.svg" alt="ForgeBlock Logo" class="logo-image">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about-us.html" class="nav-link active">About Us</a></li>
+                <li><a href="compare.html" class="nav-link">Compare Signatures</a></li>
+                <li><a href="verify.html" class="nav-link">Verify Signatures</a></li>
+                <li><a href="profile.html" class="nav-link">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="about-us-main">
+        <!-- ============================================
+             SECTION 1 - Header with About Us (CENTERED)
+             ============================================ -->
+        <section class="about-section-1">
+            <!-- Centered content with typing animations -->
+            <div class="section-1-content animate-fade-in">
+                <h1 class="about-title">About Us</h1>
+                
+                <div class="about-descriptions">
+                    <!-- Added typing animation classes -->
+                    <p class="about-desc-1 animate-typing delay-1">
+                        <strong>ForgeBlock</strong> is an intelligent signature verification and forgery detection system designed to safeguard identity, prevent fraud, and reinforce trust in digital and physical transactions. Built using advanced deep-learning models and similarity-based analysis, ForgeBlock ensures that every signature processed is validated with accuracy, consistency, and security.
+                    </p>
+
+                    <p class="about-desc-2 animate-typing delay-3">
+                        In an increasingly digital world, signatures remain one of the most widely used forms of authentication. Many institutions still rely on manual verification, which is slow, subjective, and vulnerable to human error.
+                    </p>
+
+                    <p class="about-desc-3 animate-typing delay-5">
+                        ForgeBlock exists to solve this problem.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 2 - Our System & Mission (Right Aligned)
+             ============================================ -->
+        <section class="about-section-2">
+            <div class="section-2-content animate-fade-in-right">
+                <div class="about-descriptions-2">
+                    <!-- Added typing animation classes -->
+                    <p class="about-desc-2-1 animate-typing delay-1">
+                        Our system automates the verification process by extracting high-level features from handwritten signatures and comparing them across multiple models, including Siamese networks and pretrained deep-learning architectures. Using metrics such as cosine similarity, Euclidean distance, and Manhattan distance, ForgeBlock can detect subtle inconsistencies that are often invisible to the human eye.
+                    </p>
+
+                    <!-- Split mission statement into two lines -->
+                    <div class="mission-statement animate-typing delay-3">
+                        <p class="mission-line-1">We built ForgeBlock with one mission:</p>
+                        <p class="mission-line-2">to provide secure, reliable, and accessible protection against forgery.</p>
+                    </div>
+
+                    <p class="about-desc-2-3 animate-typing delay-5">
+                        Whether used in banking, legal services, academic institutions, or corporate environments, ForgeBlock helps organizations validate signatures quickly and confidently reduce risk, improving efficiency, and strengthening trust.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 3 - Get in Touch (Center Aligned)
+             ============================================ -->
+        <section class="about-section-3">
+            <div class="section-3-content">
+                <h2 class="contact-title animate-fade-in">Get in Touch</h2>
+                <p class="contact-subtitle animate-fade-in delay-1">Have questions or want to integrate secure signature verification into your workflow?<br>We're here to help.</p>
+
+                <div class="contact-containers">
+                    <!-- Email Container -->
+                    <div class="contact-container animate-pop-in delay-2">
+                        <div class="contact-icon-wrapper">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 8L10.89 13.26C11.5475 13.7257 12.4525 13.7257 13.11 13.26L21 8M5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <p class="contact-label">Email</p>
+                        <p class="contact-info">support@forgeblock.ai</p>
+                    </div>
+
+                    <!-- Phone Container -->
+                    <div class="contact-container animate-pop-in delay-3">
+                        <div class="contact-icon-wrapper">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <p class="contact-label">Phone</p>
+                        <p class="contact-info">+1 (555) 482-0193</p>
+                    </div>
+
+                    <!-- Office Container -->
+                    <div class="contact-container animate-pop-in delay-4">
+                        <div class="contact-icon-wrapper">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.657 16.657L13.414 20.9C13.039 21.2746 12.5306 21.4851 12.0005 21.4851C11.4704 21.4851 10.962 21.2746 10.587 20.9L6.343 16.657C5.22422 15.5382 4.46234 14.1127 4.15369 12.5609C3.84504 11.009 4.00349 9.40051 4.60901 7.93873C5.21452 6.47694 6.2399 5.22734 7.55548 4.34787C8.87107 3.46841 10.4178 3 12 3C13.5822 3 15.1289 3.46841 16.4445 4.34787C17.7601 5.22734 18.7855 6.47694 19.391 7.93873C19.9965 9.40051 20.155 11.009 19.8463 12.5609C19.5377 14.1127 18.7758 15.5382 17.657 16.657Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 11C13.1046 11 14 10.1046 14 9C14 7.89543 13.1046 7 12 7C10.8954 7 10 7.89543 10 9C10 10.1046 10.8954 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <p class="contact-label">Office</p>
+                        <p class="contact-info">Manila, Philippines</p>
+                    </div>
+                </div>
+
+                <p class="copyright animate-fade-in delay-5">© 2025 ForgeBlock. All rights reserved.</p>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
